@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="EventClick"
+            type="com.mgosu.imagepreview.ui.ui.DetailImageActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_alignParentTop="true"
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:elevation="@dimen/_2sdp"
+            tools:ignore="UnusedAttribute">
+
+            <androidx.appcompat.widget.Toolbar
+                android:theme="@style/ToolbarTheme"
+                android:background="@drawable/gradient_toolbar"
+                app:titleTextColor="@android:color/white"
+                android:id="@+id/toolbarAudio"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                tools:ignore="UnusedAttribute">
+
+                <!--<com.like.LikeButton-->
+                    <!--android:visibility="gone"-->
+                    <!--android:layout_marginEnd="@dimen/_10sdp"-->
+                    <!--android:layout_gravity="end"-->
+                    <!--app:like_drawable="@drawable/start_on"-->
+                    <!--app:unlike_drawable="@drawable/start_off"-->
+                    <!--app:icon_type="Star"-->
+                    <!--app:icon_size="25dp"-->
+                    <!--android:id="@+id/star_button"-->
+                    <!--android:layout_width="55dp"-->
+                    <!--android:layout_height="?actionBarSize" />-->
+                <com.varunest.sparkbutton.SparkButton
+                    android:id="@+id/star_button2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:sparkbutton_activeImage="@drawable/start_on"
+                    app:sparkbutton_animationSpeed=".85"
+                    app:sparkbutton_iconSize="30dp"
+                    app:sparkbutton_inActiveImage="@drawable/start_off" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_above="@id/groupBottom"
+            android:id="@+id/cardView"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_below="@id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp">
+
+            <ImageView
+                android:scaleType="fitCenter"
+                android:id="@+id/imageDetail"
+                android:layout_below="@id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/bt_back"
+                android:onClick="@{EventClick::onClickBack}"
+                android:layout_below="@id/cardView"
+                android:background="@drawable/selector_button"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_30sdp" />
+
+            <Button
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_gravity="center_vertical|end"
+                android:id="@+id/bt_next"
+                android:onClick="@{EventClick::onClickNext}"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/cardView"
+                android:background="@drawable/selector_button_next"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_30sdp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/groupBottom"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:onClick="@{EventClick::onClickSave}"
+                android:background="@drawable/selector_button_save"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp" />
+
+            <Button
+                android:onClick="@{EventClick::onClickSetWallpaper}"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/selector_button_wallpaper"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp" />
+
+            <Button
+                android:onClick="@{EventClick::onClickShare}"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/selector_button_share"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

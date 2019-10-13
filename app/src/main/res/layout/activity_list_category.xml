@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="Category"
+            type="com.mgosu.imagepreview.ui.viewmodel.ListCategoryViewModel" />
+        <variable
+            name="loadingState"
+            type="Integer" />
+
+        <import type="android.view.View" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_alignParentTop="true"
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:elevation="@dimen/_2sdp"
+            tools:ignore="UnusedAttribute">
+
+            <androidx.appcompat.widget.Toolbar
+                android:theme="@style/ToolbarTheme"
+                android:background="@drawable/gradient_toolbar"
+                app:titleTextColor="@android:color/white"
+                app:title="@string/imageCategory"
+                android:id="@+id/toolbarAudio"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                tools:ignore="UnusedAttribute">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/appbar"
+            android:id="@+id/recyclerViewAudio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+        <ProgressBar
+            android:background="@android:color/transparent"
+            android:visibility="@{loadingState==0?View.VISIBLE:View.GONE}"
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp" />
+
+        <LinearLayout
+            android:visibility="@{loadingState==-1?View.VISIBLE:View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/color_black"
+                android:text="@string/emptylist" />
+
+            <Button
+                android:onClick="@{Category::onClickButtonReload}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:text="@string/retry"
+                android:layout_marginTop="@dimen/_20sdp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="loadingState"
+            type="Integer" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="Event"
+            type="com.mgosu.imagepreview.ui.ui.SplashActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:background="@android:color/transparent"
+            android:visibility="@{loadingState==0?View.VISIBLE:View.GONE}"
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp" />
+
+        <LinearLayout
+            android:visibility="@{loadingState==-1?View.VISIBLE:View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_centerInParent="true">
+
+            <Button
+                android:onClick="@{Event::ClickRetry}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:text="@string/retry"
+               />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</layout>
